@@ -4,6 +4,7 @@ name = "Ecobee Thermostat"
 manufacturer = "Ecobee"
 version = "1.0.0"
 runtime = "native"
+primary = true
 
 [[proxy]]
 id = 1
