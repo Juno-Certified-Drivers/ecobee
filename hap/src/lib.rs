@@ -24,7 +24,7 @@
 //! Thermostat service"; a sensor is the aid its setup flow recorded. Ecobee is free to
 //! renumber, and a firmware update that does will not silently point us at the wrong room.
 
-use juno_driver_sdk::*;
+use driver_sdk::*;
 use std::collections::BTreeMap;
 
 const THERMOSTAT: &str = "ecobee.hap.thermostat";

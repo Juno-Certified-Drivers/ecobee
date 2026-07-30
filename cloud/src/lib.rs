@@ -11,7 +11,7 @@
 //! Ecobee speaks Fahrenheit×10 internally. The proxy contract is Celsius, so the conversion
 //! lives here — which is exactly where a unit conversion should live.
 
-use juno_driver_sdk::*;
+use driver_sdk::*;
 use serde_json::Value;
 use std::collections::BTreeMap;
 use std::time::{SystemTime, UNIX_EPOCH};
