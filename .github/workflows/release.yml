@@ -14,4 +14,8 @@ jobs:
     uses: junohouse/driver-ci/.github/workflows/driver.yml@v1
     with:
       packages: '["cloud", "hap"]'
+    # The publish job writes releases. A called workflow cannot request more permission
+    # than its caller was granted, and this repo's default token is read-only.
+    permissions:
+      contents: write
     secrets: inherit
