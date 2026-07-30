@@ -1,0 +1,14 @@
+# Two packages, because they are two protocols that share nothing but a vendor.
+#
+# `cloud` talks to api.ecobee.com; `hap` talks HomeKit to the thermostat on the LAN. Bundling
+# drivers into one payload is right when they share control code — the cloud thermostat and
+# its remote sensors do, and ship together. These two do not, and forcing them into one
+# payload would mean dispatching on instance state to guess which protocol a command meant.
+[workspace]
+resolver = "3"
+members = ["cloud", "hap"]
+
+# A driver is a dylib the controller loads; a debug-sized one is several times larger to ship.
+[profile.release]
+opt-level = 2
+codegen-units = 16

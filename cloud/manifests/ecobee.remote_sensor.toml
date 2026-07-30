@@ -1,0 +1,35 @@
+[driver]
+id = "ecobee.remote_sensor"
+name = "Ecobee Room Sensor"
+manufacturer = "Ecobee"
+version = "1.0.0"
+runtime = "native"
+
+# A SmartSensor reports two things, so it is two bindings. Put it in the room it is actually
+# in — that is what makes "is anyone in the den?" answerable.
+[[proxy]]
+id = 1
+type = "sensor"
+primary = true
+name = "Occupancy"
+capabilities = { kind = "occupancy", is_boolean = true, auto_clear_seconds = 1800, has_battery = true }
+
+[[proxy]]
+id = 2
+type = "sensor"
+name = "Temperature"
+capabilities = { kind = "temperature", unit = "°C", value_min = -20.0, value_max = 50.0 }
+
+[[transport]]
+kind = "network"
+port = 443
+
+[[property]]
+name = "Thermostat identifier"
+type = "string"
+tooltip = "Serial of the thermostat this sensor is paired to"
+
+[[property]]
+name = "Sensor id"
+type = "string"
+tooltip = "The sensor's id in the thermostat's remoteSensors list"
