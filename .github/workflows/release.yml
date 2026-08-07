@@ -10,7 +10,7 @@ on:
 
 jobs:
   driver:
-    uses: junohouse/driver-ci/.github/workflows/driver.yml@v1
+    uses: junohouse/driver-ci/.github/workflows/driver.yml@main
     with:
       packages: '["hap"]'
     # The publish job writes releases. A called workflow cannot request more permission
