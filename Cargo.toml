@@ -1,12 +1,12 @@
-# Two packages, because they are two protocols that share nothing but a vendor.
+# `hap` talks HomeKit to the thermostat on the LAN — local, works when the internet is down,
+# and needs no developer account.
 #
-# `cloud` talks to api.ecobee.com; `hap` talks HomeKit to the thermostat on the LAN. Bundling
-# drivers into one payload is right when they share control code — the cloud thermostat and
-# its remote sensors do, and ship together. These two do not, and forcing them into one
-# payload would mean dispatching on instance state to guess which protocol a command meant.
+# There was a second package, `cloud`, against api.ecobee.com. It shared nothing with this one
+# but a vendor, and it was the only driver here that stopped working when the internet did.
+# Dropped rather than carried; remote access went with it.
 [workspace]
 resolver = "3"
-members = ["cloud", "hap"]
+members = ["hap"]
 
 # A driver is a dylib the controller loads; a debug-sized one is several times larger to ship.
 [profile.release]
